@@ -1,6 +1,7 @@
 import noImage from "assets/no-img.png";
 import { useEffect, useState } from "react";
 import { Skeleton } from "./skeleton";
+import { cn } from "utils";
 
 type Props = {
   imageUrl: string;
@@ -33,7 +34,7 @@ export const ImageContainer = ({ imageUrl, className }: Props) => {
       ) : hasError ? (
         <img src={imgUrl} alt="" className={className} />
       ) : (
-        <Skeleton className="h-[320px] w-full object-cover sm:h-[240px] bg-gray-300 rounded mb-2" />
+        <Skeleton className={cn("bg-gray-300 mb-2", className)} />
       )}
     </>
   );
