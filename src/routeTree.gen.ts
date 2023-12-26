@@ -1,5 +1,6 @@
 import { Route as rootRoute } from "./pages/__root"
 import { Route as IndexRoute } from "./pages"
+import { Route as ProductProductIdRoute } from "./pages/product/$productId"
 import { Route as AuthSignupRoute } from "./pages/auth/signup"
 import { Route as AuthLoginRoute } from "./pages/auth/login"
 
@@ -12,6 +13,9 @@ declare module "@tanstack/react-router" {
       parentRoute: typeof rootRoute
     }
     "/auth/signup": {
+      parentRoute: typeof rootRoute
+    }
+    "/product/$productId": {
       parentRoute: typeof rootRoute
     }
   }
@@ -32,8 +36,14 @@ Object.assign(AuthSignupRoute.options, {
   getParentRoute: () => rootRoute,
 })
 
+Object.assign(ProductProductIdRoute.options, {
+  path: "/product/$productId",
+  getParentRoute: () => rootRoute,
+})
+
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
   AuthLoginRoute,
   AuthSignupRoute,
+  ProductProductIdRoute,
 ])

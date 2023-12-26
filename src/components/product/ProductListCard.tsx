@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { ImageContainer } from "components/ui";
 import { Product } from "types/types";
 
@@ -17,9 +18,14 @@ export const ProductListCard = ({ item }: Props) => {
 
       <div className="flex flex-1 flex-col justify-between">
         <div className="border-s border-gray-900/10 px-4 sm:border-l-transparent">
-          <a href="#">
+          <Link
+            to={`/product/$productId`}
+            params={{
+              productId: item.id,
+            }}
+          >
             <h3 className="font-bold uppercase text-gray-900">{item.title}</h3>
-          </a>
+          </Link>
 
           <p className="mt-1 line-clamp-3 text-sm/relaxed text-gray-700">
             {item.description}
