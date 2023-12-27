@@ -1,1 +1,3 @@
-export const API_URL = "https://api.escuelajs.co/api/v1";
+export const appConfig = {
+  apiUrl: import.meta.env.VITE_API_URL,
+};

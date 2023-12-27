@@ -1,13 +1,13 @@
 import axios from "axios";
-import { API_URL } from "config";
+import { productApi } from "config";
 import { Product } from "types/types";
 
 export async function fetchAllProducts() {
-  const res = await axios.get<Product[]>(API_URL + "/products");
+  const res = await axios.get<Product[]>(productApi.productApiUrl);
   return res.data;
 }
 
 export async function getProductById(id: string): Promise<Product> {
-  const response = await axios.get<Product>(API_URL + "/products/" + id);
+  const response = await axios.get<Product>(productApi.productApiUrl + id);
   return response.data;
 }
