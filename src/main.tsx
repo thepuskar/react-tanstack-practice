@@ -5,6 +5,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { routeTree } from "./routeTree.gen";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorContainer } from "components/ui";
 
 // Set up a Router instance
 const router = new Router({
@@ -30,7 +32,11 @@ if (!rootElement.innerHTML) {
   root.render(
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <ErrorBoundary
+          fallback={<ErrorContainer message="Something went wrong" />}
+        >
+          <RouterProvider router={router} />
+        </ErrorBoundary>
       </QueryClientProvider>
     </React.StrictMode>
   );
