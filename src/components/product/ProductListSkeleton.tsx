@@ -1,6 +1,6 @@
 import { Skeleton } from "components/ui";
 
-export const ProductListSkeleton = () => {
+export const ListSkeleton = () => {
   return (
     <div className="flex bg-white transition w-full mb-4 rounded items-center border border-gray-300 p-2">
       <Skeleton id="img" className="h-40 w-40 bg-gray-300 rounded" />
@@ -16,5 +16,17 @@ export const ProductListSkeleton = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+export const ProductListSkeleton = () => {
+  return (
+    <>
+      <ListSkeleton />
+      <ListSkeleton />
+      <ListSkeleton />
+      <ListSkeleton />
+      <ListSkeleton />
+    </>
   );
 };
