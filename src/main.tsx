@@ -1,12 +1,12 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Router, RouterProvider } from "@tanstack/react-router";
+import { ErrorContainer } from "components/ui";
 import { queryClient } from "config";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ErrorBoundary } from "react-error-boundary";
 import "./index.css";
 import { routeTree } from "./routeTree.gen";
-import { ErrorBoundary } from "react-error-boundary";
-import { ErrorContainer } from "components/ui";
 
 // Set up a Router instance
 const router = new Router({
